@@ -16,7 +16,8 @@ This a public calculator of Nuts by Bema to estimate
 
 - create database : digitaleco
 - create table with db/digitaleco.sql
-- create on your site directory generate, with writting HTTPD Server Authorization
+- copy files httpd-directory/* into your www directory
+- create on your www directory this directory "generate", with writting HTTPD Server Authorization
 
 ## Use
 
