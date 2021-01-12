@@ -56,14 +56,14 @@ function entete() {
 function menu()
 {
 	if ($_SESSION['Login']){
-	$link_acceuil="/Index2.php";
+	$link_acceuil="/home_public.php";
 	$link_login="/close.php";
 	$img_login="logout.png";
 	$txt_login="Logout";
 	}
 	else {
 		$link_acceuil="/home_public.php";
-		$link_login="/home.php";
+		$link_login="/home_public.php";
 		$img_login="login.png";
 		$txt_login="Login";
 	}
