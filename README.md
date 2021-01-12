@@ -9,8 +9,8 @@ This a public calculator of Nuts by Bema to estimate
 - Smart Speaker
 
 ## Requirements
- PHP ^7
- MariaDB 
+ - PHP ^7
+ - MariaDB 
  
 ## Install
 
