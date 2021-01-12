@@ -1,6 +1,6 @@
-# Nuts by BeMa : Estimate your Devices CO2
+# Nuts by BeMa : Estimate your Device emission CO2eq
 
-This a basic calculator device to estimate your Device CO2.
+This a basic calculator device to estimate your Device emission CO2eq.
 This a public calculator of Nuts by Bema to estimate
 - Laptop
 - Display
