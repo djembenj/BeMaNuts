@@ -92,7 +92,7 @@ echo "
 <div class='container'>
 <div id='content_bas'>
 <hr width=90%>
-<p class='bas' align=center>Nuts V $version /  Copyright © $annee BeMa. Tous droits réservés <br>Follow BeMa : <a href='https://www.facebook.com/BeMaDigitalEco/' target=_blank>Facebook</a>- <a href='https://www.instagram.com/BemaDigitaleco/' target=_blank>Instagram</a></p>
+<p class='bas' align=center>Nuts V $version /  Copyright © $annee BeMa. Tous droits réservés <br>Follow BeMa : <a href='https://www.facebook.com/BeMaDigitalEco/' target=_blank>Facebook</a>- <a href='https://www.instagram.com/BemaDigitaleco/' target=_blank>Instagram</a>- <a href='https://github.com/djembenj/BeMaNuts' target=_blank>Git</a></p>
 </div>
 </div>
 </html>
