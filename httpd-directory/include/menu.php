@@ -72,27 +72,13 @@ function menu()
 	<div id='content_haut'>
 
 <div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_acceuil;?>" class=titre><img src="/images/nuts.png" class='image_menu_md'></a></button></div>
-<?php if ($_SESSION['Login']){ ?>
-<div class="notify-container"><button class='btn-menu'><a href="/company.php" class=titre><img src="/images/menu/entreprise.png" class='image_menu_md'><br>Entreprise</a></button></div>
-<div class="notify-container"><button class='btn-menu'><a href="/laptop.php" class=titre><img src="/images/menu/laptop.png" class='image_menu_md'><br>Laptop</a></button></div>
-<div class="notify-container"><button class='btn-menu'><a href="/Index2.php" class=titre><img src="/images/menu/desktop.png" class='image_menu_md'><br>Desktop</a></button></div>
-<div class="notify-container"><button class='btn-menu'><a href="/Index2.php" class=titre><img src="/images/menu/smartphone.png" class='image_menu_md'><br>Smartphone</a></button></div>
-<div class="notify-container"><button class='btn-menu'><a href="/Index2.php" class=titre><img src="/images/menu/server.png" class='image_menu_md'><br>Server</a></button></div>
-<div class="notify-container"><button class='btn-menu'><a href="/Index2.php" class=titre><img src="/images/menu/stockage.png" class='image_menu_md'><br>Stockage</a></button></div>
-<div class="notify-container"><button class='btn-menu'><a href="/Index2.php" class=titre><img src="/images/menu/printer.png" class='image_menu_md'><br>Printer</a></button></div>
-<div class="notify-container"><button class='btn-menu'><a href="/Index2.php" class=titre><img src="/images/menu/monitor.png" class='image_menu_md'><br>Monitor</a></button>
 
-<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_login;?>" class=titre><img src="/images/menu/<?php echo $img_login;?>" class='image_menu_md'><br><?php echo $txt_login;?></a></button>&nbsp;<a href="info.php"><img src="/images/menu/info.png" class='image_menu_lg'></a>&nbsp;<a href="?LANG=fr"><img src="/images/menu/fr.png" class='image_menu_lg'></a>
-<a href="?LANG=uk"><img src="/images/menu/uk.png" class='image_menu_lg'></a></div>
-<?php }
-
-else { ?>
 	<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_acceuil;?>" class=titre><img src="/images/menu/home.png" class='image_menu_md'><br>Acceuil</a></button></div>
 	<div class="notify-container"><button class='btn-menu'><a href="?LANG=fr" class=titre><img src="/images/menu/fr.png" class='image_menu_md'><br>FR</a></button></div>
 	<div class="notify-container"><button class='btn-menu'><a href="?LANG=uk" class=titre><img src="/images/menu/uk.png" class='image_menu_md'><br>EN</a></button></div>
 	<div class="notify-container"><button class='btn-menu'><a href="info.php" class=titre><img src="/images/menu/info.png" class='image_menu_md'><br>Information</a></button></div>
 	<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_login;?>" class=titre><img src="/images/menu/<?php echo $img_login;?>" class='image_menu_md'><br><?php echo $txt_login;?></a></button></div>
-<?php  }?>
+
 </div>
 
 <?php
