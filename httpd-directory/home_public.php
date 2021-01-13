@@ -366,7 +366,7 @@ $myconsoannuel=0;
   <?php
   $image = imagecreate(213,214);
   $noir = imagecolorallocate($image, 100, 145, 187);
-  $source = imagecreatefrompng("/BeMaNFS/www/digitaleco/images/nutsresult.png");
+  $source = imagecreatefrompng("images/nutsresult.png");
   imagestring($source, 3, 47, 85, "$myconsoannuel_image Kg", $noir);
   imagestring($source, 3, $align_arbre, 85, $nb_arbre, $noir);
   imagestring($source, 3, 126, 173, "$nb_accord_paris%", $noir);

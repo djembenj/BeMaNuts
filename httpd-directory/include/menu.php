@@ -70,13 +70,12 @@ function menu()
 ?>
 <div class='container'>
 	<div id='content_haut'>
-
-<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_acceuil;?>" class=titre><img src="/images/nuts.png" class='image_menu_md'><br>Accueil</a></button></div>
-	<div class="notify-container"><button class='btn-menu'><a href="?LANG=fr" class=titre><img src="/images/menu/fr.png" class='image_menu_md'><br>FR</a></button></div>
-	<div class="notify-container"><button class='btn-menu'><a href="?LANG=uk" class=titre><img src="/images/menu/uk.png" class='image_menu_md'><br>EN</a></button></div>
-	<div class="notify-container"><button class='btn-menu'><a href="info.php" class=titre><img src="/images/menu/info.png" class='image_menu_md'><br>Information</a></button></div>
-	<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_login;?>" class=titre><img src="/images/menu/<?php echo $img_login;?>" class='image_menu_md'><br><?php echo $txt_login;?></a></button></div>
-
+		<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_acceuil;?>" class=titre><img src="/images/nuts.png" class='image_menu_md' alt='Accueil'><br>Accueil</a></button></div>
+		<div class="notify-container"><button class='btn-menu'><a href="?LANG=fr" class=titre><img src="/images/menu/fr.png" class='image_menu_md' alt='FR'><br>FR</a></button></div>
+		<div class="notify-container"><button class='btn-menu'><a href="?LANG=uk" class=titre><img src="/images/menu/uk.png" class='image_menu_md' alt='EN'><br>EN</a></button></div>
+		<div class="notify-container"><button class='btn-menu'><a href="info.php" class=titre><img src="/images/menu/info.png" class='image_menu_md' alt='Information'><br>Information</a></button></div>
+		<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_login;?>" class=titre><img src="/images/menu/<?php echo $img_login;?>" class='image_menu_md' alt='Login'><br><?php echo $txt_login;?></a></button>
+	</div>
 </div>
 
 <?php
@@ -88,10 +87,10 @@ function footer()
 	$annee=date('Y');
 echo "
 <div class='container'>
-<div id='content_bas'>
-<hr width=90%>
-<p class='bas' align=center>Nuts V $version /  Copyright © $annee BeMa. Tous droits réservés <br>Follow BeMa : <a href='https://www.facebook.com/BeMaDigitalEco/' target=_blank>Facebook</a>- <a href='https://www.instagram.com/BemaDigitaleco/' target=_blank>Instagram</a>- <a href='https://github.com/djembenj/BeMaNuts' target=_blank>Git</a></p>
-</div>
+	<div id='content_bas'>
+		<hr width=90%>
+			<p class='bas' align=center>Nuts V $version /  Copyright © $annee BeMa. Tous droits réservés <br>Follow BeMa : <a href='https://www.facebook.com/BeMaDigitalEco/' target=_blank>Facebook</a>- <a href='https://www.instagram.com/BemaDigitaleco/' target=_blank>Instagram</a>- <a href='https://github.com/djembenj/BeMaNuts' target=_blank>Git</a></p>
+	</div>
 </div>
 </html>
 ";
