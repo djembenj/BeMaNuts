@@ -379,7 +379,7 @@ $myconsoannuel=0;
   imagepng($source,"$nom_image");
    ?>
   <tr>
-    <td colspan="9" align=center><br><a download="BeMa-DigitalEco-Nuts.jpg" href="<?php echo "$nom_image";?>" title="BeMa-DigitalEco-Nuts"><?php echo $titre_resultat?><br><img src="<?php echo "$nom_image";?>"><br><?php echo $dw_resultat;?></a><br>&nbsp;</td>
+    <td colspan="9" align=center><br><a download="BeMa-DigitalEco-Nuts.jpg" href="<?php echo "$nom_image";?>" title="BeMa-DigitalEco-Nuts"><?php echo $titre_resultat?><br><img src="<?php echo "$nom_image";?>" alt='Mon émission CO2'><br><?php echo $dw_resultat;?></a><br>&nbsp;</td>
   </tr>
  <?php
  }
