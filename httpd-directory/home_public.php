@@ -62,24 +62,24 @@ entete();
 menu();
 $myconsoannuel=0;
 ?>
+<div id='content_millieu'>
 <form method=post>
-  <table border=0 align=center width=90% cellspacing=0>
+  <table class=nuts1>
     <tr>
-      <td colspan=9 align=center><?php echo $titre_Index2;?></td>
+      <td colspan=8 class="center cadre-titre-h1"><?php echo $titre_Index2;?></td>
     </tr>
-    <tr bgcolor=dddddd>
-      <td colspan="2" align=center class=cadre-titre><?php echo $titre_equipement;?></td>
-      <td width=15></td>
-      <td align=center bgcolor=#1a5c9a width=85 class=cadre-titre-white>Total</td>
-      <td align=center bgcolor=#1a5c9a width=85 class=cadre-titre-white>Production</td>
-      <td align=center  bgcolor=#1a5c9a width=85 class=cadre-titre-white>Transport</td>
-      <td align=center bgcolor=#1aa69a width=85 class=cadre-titre-white>Usage</td>
-      <td align=center  bgcolor=#1a5c9a width=85 class=cadre-titre-white>Recycle</td>
-      <td align=center width=85 class=cadre-titre><?php echo $titre_annuel;?><td>
+    <tr class=bgcolor_gris>
+      <td colspan=2 class="center cadre-titre"><?php echo $titre_equipement;?></td>
+      <td class="center cadre-titre-white bgcolor_bleu taille85">Total</td>
+      <td class="center cadre-titre-white bgcolor_bleu taille85">Production</td>
+      <td class="center cadre-titre-white bgcolor_bleu taille85">Transport</td>
+      <td class="center cadre-titre-white bgcolor_vert taille85">Usage</td>
+      <td class="center cadre-titre-white bgcolor_bleu taille85">Recycle</td>
+      <td class="center cadre-titre taille85"><?php echo $titre_annuel;?></td>
     </tr>
   <tr>
-    <td align=left><?php echo $titre_mon_portable;?></td>
-    <td align=left><select name=laptop onChange="submit()"><?php echo $portable;?></select><?php echo "<a href=".$emission_equipement['source']." target=_blank> LINK</a>"; ?>
+    <td class=left><?php echo $titre_mon_portable;?></td>
+    <td class=left><select name=laptop onChange="submit()"><?php echo $portable;?></select><?php echo "<a href='".$emission_equipement['source']."' target=\"_blank\">LINK</a>"; ?>
       <?php
       if ( $_POST['laptop'] ) {
         if ( $LANG=="fr" )
@@ -87,7 +87,6 @@ $myconsoannuel=0;
       echo "<br>".$date_mon_portable." : ".$emission_equipement['date_emission']."<br>"?><?php echo $emission_equipement['ref2']."<br>".$emission_equipement['info'];?>
     <?php } ?>
     </td>
-    <td></td>
     <?php
     $emission_annuel="";
 
@@ -105,22 +104,21 @@ $myconsoannuel=0;
     $recycling=round($emission_equipement['total']*$emission_equipement['recycling']/100,0);
 
     echo '
-    <td align=center>100% <br />'.$emission_equipement['total'].'</td>
-    <td align=center><b>'.$emission_equipement['production'].'% <br />'.$production.'</td>
-    <td align=center>'.$emission_equipement['transport'].'% <br />'.$transport.'</td>
-    <td align=center><b>'.$emission_equipement['custumer'].'% <br />'.$custumer.'</td>
-    <td align=center>'.$emission_equipement['recycling'].'% <br />'.$recycling.'</td>
-    <td align=center>'.$emission_annuel.'<td>';
+    <td class=center>100% <br />'.$emission_equipement['total'].'</td>
+    <td class=center><b>'.$emission_equipement['production'].'% <br />'.$production.'</b></td>
+    <td class=center>'.$emission_equipement['transport'].'% <br />'.$transport.'</td>
+    <td class=center><b>'.$emission_equipement['custumer'].'% <br />'.$custumer.'</b></td>
+    <td class=center>'.$emission_equipement['recycling'].'% <br />'.$recycling.'</td>
+    <td class=center>'.$emission_annuel.'</td>';
     ?>
   </tr>
   <tr>
-    <td align=left><?php echo $titre_duration;?></td>
-    <td align=left><select name=duree_laptop onchange="submit()"><?php donne_duree_utilisation($emission_equipement['use_period'],$duree_laptop);?></select> <?php echo $titre_an;?></td>
+    <td class=left><?php echo $titre_duration;?></td>
+    <td class=left colspan="7"><select name=duree_laptop onchange="submit()"><?php donne_duree_utilisation($emission_equipement['use_period'],$duree_laptop);?></select> <?php echo $titre_an;?></td>
   </tr>
   <tr>
-    <td align=left><?php echo $titre_screen;?></td>
-    <td align=left><select name=display onChange="submit()"><?php echo $display;?></select><?php echo "<a href=".$emission_display['source']." target=_blank> LINK</a>"; ?>
-    <td></td>
+    <td class=left><?php echo $titre_screen;?></td>
+    <td class=left><select name=display onChange="submit()"><?php echo $display;?></select><?php echo "<a href='".$emission_display['source']."' target=\"_blank\">LINK</a>"; ?>
     <?php
     $emission_annuel="";
 
@@ -137,28 +135,25 @@ $myconsoannuel=0;
     $recycling=round($emission_display['total']*$emission_display['recycling']/100,0);
 
     echo '
-    <td align=center>100% <br />'.$emission_display['total'].'</td>
-    <td align=center><b>'.$emission_display['production'].'% <br />'.$production.'</td>
-    <td align=center>'.$emission_display['transport'].'% <br />'.$transport.'</td>
-    <td align=center><b>'.$emission_display['custumer'].'% <br />'.$custumer.'</td>
-    <td align=center>'.$emission_display['recycling'].'% <br />'.$recycling.'</td>
-    <td align=center>'.$emission_annuel.'<td>';
-
+    <td class=center>100% <br />'.$emission_display['total'].'</td>
+    <td class=center><b>'.$emission_display['production'].'% <br />'.$production.'</b></td>
+    <td class=center>'.$emission_display['transport'].'% <br />'.$transport.'</td>
+    <td class=center><b>'.$emission_display['custumer'].'% <br />'.$custumer.'</b></td>
+    <td class=center>'.$emission_display['recycling'].'% <br />'.$recycling.'</td>
+    <td class=center>'.$emission_annuel.'</td>';
     ?>
   </tr>
   <tr>
-
-    <td align=left><?php echo $titre_duration;?></td>
-    <td align=left><select name=duree_display onchange="submit()"><?php donne_duree_utilisation($emission_display['use_period'],$duree_display);?></select> <?php echo $titre_an;?></td>
+    <td class=left><?php echo $titre_duration;?></td>
+    <td class=left colspan="7"><select name=duree_display onchange="submit()"><?php donne_duree_utilisation($emission_display['use_period'],$duree_display);?></select> <?php echo $titre_an;?></td>
   </tr>
   <tr>
-    <td colspan=9><hr></td>
+    <td colspan=8><hr></td>
   </tr>
   <tr>
 
-    <td align=left><?php echo $titre_desktop;?></td>
-    <td align=left><select name=desktop onChange="submit()"><?php echo $desktop;?></select><?php echo "<a href=".$emission_desktop['source']." target=_blank> LINK</a>"; ?>
-    <td></td>
+    <td class=left><?php echo $titre_desktop;?></td>
+    <td class=left><select name=desktop onChange="submit()"><?php echo $desktop;?></select><?php echo "<a href='".$emission_desktop['source']."' target=\"_blank\">LINK</a>"; ?>
     <?php
     $emission_annuel="";
 
@@ -175,23 +170,22 @@ $myconsoannuel=0;
     $recycling=round($emission_desktop['total']*$emission_desktop['recycling']/100,0);
 
     echo '
-    <td align=center>100% <br />'.$emission_desktop['total'].'</td>
-    <td align=center><b>'.$emission_desktop['production'].'% <br />'.$production.'</td>
-    <td align=center>'.$emission_desktop['transport'].'% <br />'.$transport.'</td>
-    <td align=center><b>'.$emission_desktop['custumer'].'% <br />'.$custumer.'</td>
-    <td align=center>'.$emission_desktop['recycling'].'% <br />'.$recycling.'</td>
-    <td align=center>'.$emission_annuel.'<td>';
+    <td class=center>100% <br />'.$emission_desktop['total'].'</td>
+    <td class=center><b>'.$emission_desktop['production'].'% <br />'.$production.'</b></td>
+    <td class=center>'.$emission_desktop['transport'].'% <br />'.$transport.'</td>
+    <td class=center><b>'.$emission_desktop['custumer'].'% <br />'.$custumer.'</b></td>
+    <td class=center>'.$emission_desktop['recycling'].'% <br />'.$recycling.'</td>
+    <td class=center>'.$emission_annuel.'</td>';
     ?>
   </tr>
   <tr>
-    <td align=left><?php echo $titre_duration;?></td>
-    <td align=left><select name=duree_desktop onchange="submit()"><?php donne_duree_utilisation($emission_desktop['use_period'],$duree_desktop);?></select> <?php echo $titre_an;?></td>
+    <td class=left><?php echo $titre_duration;?></td>
+    <td class=left colspan="7"><select name=duree_desktop onchange="submit()"><?php donne_duree_utilisation($emission_desktop['use_period'],$duree_desktop);?></select> <?php echo $titre_an;?></td>
   </tr>
   <tr>
 
-    <td align=left><?php echo $titre_screen;?></td>
-    <td align=left><select name=display2 onChange="submit()"><?php echo $display2;?></select><?php echo "<a href=".$emission_display2['source']." target=_blank> LINK</a>"; ?>
-    <td></td>
+    <td class=left><?php echo $titre_screen;?></td>
+    <td class=left><select name=display2 onChange="submit()"><?php echo $display2;?></select><?php echo "<a href='".$emission_display2['source']."' target=\"_blank\">LINK</a>"; ?>
     <?php
     $emission_annuel="";
 
@@ -208,27 +202,26 @@ $myconsoannuel=0;
     $recycling=round($emission_display2['total']*$emission_display2['recycling']/100,0);
 
     echo '
-    <td align=center>100% <br />'.$emission_display2['total'].'</td>
-    <td align=center><b>'.$emission_display2['production'].'% <br />'.$production.'</td>
-    <td align=center>'.$emission_display2['transport'].'% <br />'.$transport.'</td>
-    <td align=center><b>'.$emission_display2['custumer'].'% <br />'.$custumer.'</td>
-    <td align=center>'.$emission_display2['recycling'].'% <br />'.$recycling.'</td>
-    <td align=center>'.$emission_annuel.'<td>';
+    <td class=center>100% <br />'.$emission_display2['total'].'</td>
+    <td class=center><b>'.$emission_display2['production'].'% <br />'.$production.'</b></td>
+    <td class=center>'.$emission_display2['transport'].'% <br />'.$transport.'</td>
+    <td class=center><b>'.$emission_display2['custumer'].'% <br />'.$custumer.'</b></td>
+    <td class=center>'.$emission_display2['recycling'].'% <br />'.$recycling.'</td>
+    <td class=center>'.$emission_annuel.'</td>';
 
     ?>
   </tr>
   <tr>
 
-    <td align=left><?php echo $titre_duration;?></td>
-    <td align=left><select name=duree_display2 onchange="submit()"><?php donne_duree_utilisation($emission_display2['use_period'],$duree_display2);?></select> <?php echo $titre_an;?></td>
+    <td class=left><?php echo $titre_duration;?></td>
+    <td class=left colspan="7"><select name=duree_display2 onchange="submit()"><?php donne_duree_utilisation($emission_display2['use_period'],$duree_display2);?></select> <?php echo $titre_an;?></td>
   </tr>
   <tr>
-    <td colspan=9><hr></td>
+    <td colspan=8><hr></td>
   </tr>
   <tr>
-    <td align=left><?php echo $titre_telephone;?></td>
-    <td align=left><select name=smartphone onChange="submit()"><?php echo  $smartphone;?></select><?php echo "<a href=".$emission_smartphone['source']." target=_blank> LINK</a>"; ?>
-      <td></td>
+    <td class=left><?php echo $titre_telephone;?></td>
+    <td class=left><select name=smartphone onChange="submit()"><?php echo  $smartphone;?></select><?php echo "<a href='".$emission_smartphone['source']."' target=\"_blank\">LINK</a>"; ?>
       <?php
       $emission_annuel="";
 
@@ -245,26 +238,24 @@ $myconsoannuel=0;
       $recycling=round($emission_smartphone['total']*$emission_smartphone['recycling']/100,0);
 
       echo '
-      <td align=center>100% <br />'.$emission_smartphone['total'].'</td>
-      <td align=center><b>'.$emission_smartphone['production'].'% <br />'.$production.'</td>
-      <td align=center>'.$emission_smartphone['transport'].'% <br />'.$transport.'</td>
-      <td align=center><b>'.$emission_smartphone['custumer'].'% <br />'.$custumer.'</td>
-      <td align=center>'.$emission_smartphone['recycling'].'% <br />'.$recycling.'</td>
-      <td align=center>'.$emission_annuel.'<td>';
+      <td class=center>100% <br />'.$emission_smartphone['total'].'</td>
+      <td class=center><b>'.$emission_smartphone['production'].'% <br />'.$production.'</b></td>
+      <td class=center>'.$emission_smartphone['transport'].'% <br />'.$transport.'</td>
+      <td class=center><b>'.$emission_smartphone['custumer'].'% <br />'.$custumer.'</b></td>
+      <td class=center>'.$emission_smartphone['recycling'].'% <br />'.$recycling.'</td>
+      <td class=center>'.$emission_annuel.'</td>';
       ?>
   </tr>
   <tr>
-
-    <td align=left><?php echo $titre_duration;?></td>
-    <td align=left><select name=duree_smartphone onchange="submit()"><?php donne_duree_utilisation($emission_smartphone['use_period'],$duree_smartphone);?></select> <?php echo $titre_an;?></td>
+    <td class=left><?php echo $titre_duration;?></td>
+    <td class=left colspan="7"><select name=duree_smartphone onchange="submit()"><?php donne_duree_utilisation($emission_smartphone['use_period'],$duree_smartphone);?></select> <?php echo $titre_an;?></td>
   </tr>
   <tr>
-    <td colspan=9><hr></td>
+    <td colspan=8><hr></td>
   </tr>
   <tr>
-    <td align=left><?php echo $titre_tablette;?></td>
-    <td align=left><select name=tablette onChange="submit()"><?php echo  $tablette;?></select><?php echo "<a href=".$emission_tablette['source']." target=_blank> LINK</a>"; ?>
-      <td></td>
+    <td class=left><?php echo $titre_tablette;?></td>
+    <td class=left><select name=tablette onChange="submit()"><?php echo  $tablette;?></select><?php echo "<a href='".$emission_tablette['source']."' target=\"_blank\">LINK</a>"; ?>
       <?php
       $emission_annuel="";
 
@@ -281,27 +272,26 @@ $myconsoannuel=0;
       $recycling=round($emission_tablette['total']*$emission_tablette['recycling']/100,0);
 
       echo '
-      <td align=center>100% <br />'.$emission_tablette['total'].'</td>
-      <td align=center><b>'.$emission_tablette['production'].'% <br />'.$production.'</td>
-      <td align=center>'.$emission_tablette['transport'].'% <br />'.$transport.'</td>
-      <td align=center><b>'.$emission_tablette['custumer'].'% <br />'.$custumer.'</td>
-      <td align=center>'.$emission_tablette['recycling'].'% <br />'.$recycling.'</td>
-      <td align=center>'.$emission_annuel.'<td>';
+      <td class=center>100% <br />'.$emission_tablette['total'].'</td>
+      <td class=center><b>'.$emission_tablette['production'].'% <br />'.$production.'</b></td>
+      <td class=center>'.$emission_tablette['transport'].'% <br />'.$transport.'</td>
+      <td class=center><b>'.$emission_tablette['custumer'].'% <br />'.$custumer.'</b></td>
+      <td class=center>'.$emission_tablette['recycling'].'% <br />'.$recycling.'</td>
+      <td class=center>'.$emission_annuel.'</td>';
       ?>
   </tr>
   <tr>
 
-    <td align=left><?php echo $titre_duration;?></td>
-    <td align=left><select name=duree_tablette onchange="submit()"><?php donne_duree_utilisation($emission_tablette['use_period'],$duree_tablette);?></select> <?php echo $titre_an;?></td>
+    <td class=left><?php echo $titre_duration;?></td>
+    <td class=left colspan="7"><select name=duree_tablette onchange="submit()"><?php donne_duree_utilisation($emission_tablette['use_period'],$duree_tablette);?></select> <?php echo $titre_an;?></td>
   </tr>
   <tr>
-    <td colspan=9><hr></td>
+    <td colspan=8><hr></td>
   </tr>
   <tr>
 
-    <td align=left><?php echo $titre_audio;?></td>
-    <td align=left><select name=enceinte onChange="submit()"><?php echo  $enceinte;?></select><?php echo "<a href=".$emission_enceinte['source']." target=_blank> LINK</a>"; ?>
-      <td></td>
+    <td class=left><?php echo $titre_audio;?></td>
+    <td class=left><select name=enceinte onChange="submit()"><?php echo  $enceinte;?></select><?php echo "<a href='".$emission_enceinte['source']."' target=\"_blank\">LINK</a>"; ?>
       <?php
       $emission_annuel="";
 
@@ -318,25 +308,25 @@ $myconsoannuel=0;
       $recycling=round($emission_enceinte['total']*$emission_enceinte['recycling']/100,0);
 
       echo '
-      <td align=center>100% <br />'.$emission_enceinte['total'].'</td>
-      <td align=center><b>'.$emission_enceinte['production'].'% <br />'.$production.'</td>
-      <td align=center>'.$emission_enceinte['transport'].'% <br />'.$transport.'</td>
-      <td align=center><b>'.$emission_enceinte['custumer'].'% <br />'.$custumer.'</td>
-      <td align=center>'.$emission_enceinte['recycling'].'% <br />'.$recycling.'</td>
-      <td align=center>'.$emission_annuel.'<td>';
+      <td class=center>100% <br />'.$emission_enceinte['total'].'</td>
+      <td class=center><b>'.$emission_enceinte['production'].'% <br />'.$production.'</b></td>
+      <td class=center>'.$emission_enceinte['transport'].'% <br />'.$transport.'</td>
+      <td class=center><b>'.$emission_enceinte['custumer'].'% <br />'.$custumer.'</b></td>
+      <td class=center>'.$emission_enceinte['recycling'].'% <br />'.$recycling.'</td>
+      <td class=center>'.$emission_annuel.'</td>';
       ?>
   </tr>
   <tr>
-    <td align=left><?php echo $titre_duration;?></td>
-    <td align=left><select name=duree_audio onchange="submit()"><?php donne_duree_utilisation($emission_enceinte['use_period'],$duree_audio);?></select> <?php echo $titre_an;?></td>
+    <td class=left><?php echo $titre_duration;?></td>
+    <td class=left colspan="7"><select name=duree_audio onchange="submit()"><?php donne_duree_utilisation($emission_enceinte['use_period'],$duree_audio);?></select> <?php echo $titre_an;?></td>
   </tr>
   <tr>
-    <td colspan=9><hr></td>
+    <td colspan=8><hr></td>
   </tr>
 
-  <tr  bgcolor=dddddd>
-      <td colspan=2 align=center><br>&nbsp;<b>Digital Ecologist<br>&nbsp;</td>
-      <td colspan="7" align=center><b><?php echo  $myconsoannuel;?></b> KgCO<sub>2</sub>eq / <?php echo $titre_an; ?></td>
+  <tr class=bgcolor_gris>
+      <td colspan=3 class=center><br>&nbsp;<b>Digital Ecologist</b><br>&nbsp;</td>
+      <td colspan="5" class=center><b><?php echo  $myconsoannuel;?> KgCO<sub>2</sub>eq / <?php echo $titre_an; ?></b></td>
   </tr>
   <?php
     if ( $myconsoannuel > 0 ){
@@ -356,12 +346,12 @@ $myconsoannuel=0;
     }
  ?>
  <tr>
-     <td colspan="3" align=center><img src='/images/menu/co2.png' class='image_menu'><br><b><?php echo  $myconsoannuel;?></b> KgCO<sub>2</sub>eq / <?php echo $titre_an; ?></td>
-     <td colspan="6" align=center><img src='/images/menu/arbre.png' class='image_menu'><br><b><?php echo $nb_arbre;?> arbres / <?php echo $titre_an; ?></td>
+     <td colspan="3" class=center><img src='/images/menu/co2.png' class='image_menu' alt='co2'><br><b><?php echo  $myconsoannuel;?></b> KgCO<sub>2</sub>eq / <?php echo $titre_an; ?></td>
+     <td colspan="5" class=center><img src='/images/menu/arbre.png' class='image_menu'  alt='arbre'><br><b><?php echo $nb_arbre;?> arbres / <?php echo $titre_an; ?></b></td>
  </tr>
- <tr  bgcolor=dddddd>
-    <td colspan="3" align=center>Accord de Paris cible à 2050 : <br> <b>2,1 tonnes de CO<sub>2</sub></b> pour 2°C</td>
-    <td colspan="6" align=center><a href='https://fr.wikipedia.org/wiki/Conf%C3%A9rence_de_Paris_de_2015_sur_les_changements_climatiques' target=_blank><img src='/images/menu/pariscop21.png' class='image_menu'></a><br><b><?php echo $nb_accord_paris; ?> % versus COP21</td>
+ <tr class=bgcolor_gris>
+    <td colspan="3" class=center>Accord de Paris cible à 2050 : <br> <b>2,1 tonnes de CO<sub>2</sub></b> pour 2°C</td>
+    <td colspan="5" class=center><a href='https://fr.wikipedia.org/wiki/Conf%C3%A9rence_de_Paris_de_2015_sur_les_changements_climatiques' target=\"_blank\"><img src='/images/menu/pariscop21.png' class='image_menu' alt='Paris Cop 21'></a><br><b><?php echo $nb_accord_paris; ?> % versus COP21</b></td>
   </tr>
   <?php
   $image = imagecreate(213,214);
@@ -379,11 +369,13 @@ $myconsoannuel=0;
   imagepng($source,"$nom_image");
    ?>
   <tr>
-    <td colspan="9" align=center><br><a download="BeMa-DigitalEco-Nuts.jpg" href="<?php echo "$nom_image";?>" title="BeMa-DigitalEco-Nuts"><?php echo $titre_resultat?><br><img src="<?php echo "$nom_image";?>" alt='Mon émission CO2'><br><?php echo $dw_resultat;?></a><br>&nbsp;</td>
+    <td colspan="8" class=center><br><a download="BeMa-DigitalEco-Nuts.jpg" href="<?php echo "$nom_image";?>" title="BeMa-DigitalEco-Nuts"><?php echo $titre_resultat?><br><img src="<?php echo "$nom_image";?>" alt='Mon emission CO2'><br><?php echo $dw_resultat;?></a><br>&nbsp;</td>
   </tr>
  <?php
  }
  ?>
 </table>
 </form>
+</div>
+</div>
 <?php footer();?>

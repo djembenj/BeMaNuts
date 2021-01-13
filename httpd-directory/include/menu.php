@@ -49,7 +49,7 @@ function entete() {
 		} );
 		</script>
 </head>
-<body class="home page-template-default page page-id-979 site_layout_2  header_style_4 wpb-js-composer js-comp-ver-5.1.1 vc_responsive">
+<body>
 <?php
 }
 
@@ -90,7 +90,7 @@ echo "
 	<div id='content_bas'>
 		<hr width=90%>
 			<p class='bas' align=center>Nuts V $version /  Copyright © $annee BeMa. Tous droits réservés <br>Follow BeMa : <a href='https://www.facebook.com/BeMaDigitalEco/' target=_blank>Facebook</a>- <a href='https://www.instagram.com/BemaDigitaleco/' target=_blank>Instagram</a>- <a href='https://github.com/djembenj/BeMaNuts' target=_blank>Git</a></p>
-	</div>
+</div>
 </div>
 </html>
 ";
