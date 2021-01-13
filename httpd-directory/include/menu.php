@@ -71,9 +71,7 @@ function menu()
 <div class='container'>
 	<div id='content_haut'>
 
-<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_acceuil;?>" class=titre><img src="/images/nuts.png" class='image_menu_md'></a></button></div>
-
-	<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_acceuil;?>" class=titre><img src="/images/menu/home.png" class='image_menu_md'><br>Acceuil</a></button></div>
+<div class="notify-container"><button class='btn-menu'><a href="<?php echo $link_acceuil;?>" class=titre><img src="/images/nuts.png" class='image_menu_md'><br>Accueil</a></button></div>
 	<div class="notify-container"><button class='btn-menu'><a href="?LANG=fr" class=titre><img src="/images/menu/fr.png" class='image_menu_md'><br>FR</a></button></div>
 	<div class="notify-container"><button class='btn-menu'><a href="?LANG=uk" class=titre><img src="/images/menu/uk.png" class='image_menu_md'><br>EN</a></button></div>
 	<div class="notify-container"><button class='btn-menu'><a href="info.php" class=titre><img src="/images/menu/info.png" class='image_menu_md'><br>Information</a></button></div>
