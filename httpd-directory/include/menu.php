@@ -62,8 +62,8 @@ function menu()
 	$txt_login="Logout";
 	}
 	else {
-		$link_acceuil="/home_public.php";
-		$link_login="/home_public.php";
+		$link_acceuil="/calculator.php";
+		$link_login="/calculator.php";
 		$img_login="login.png";
 		$txt_login="Login";
 	}

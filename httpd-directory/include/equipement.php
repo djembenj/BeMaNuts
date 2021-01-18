@@ -8,7 +8,7 @@ function donne_liste_pc ($db,$id_equipement_recu)
 
   $result = $db->query($query);
   $constructeur="";
-  global $select_equipement;
+  global $select_equipement_pc;
   // <optgroup label="Europe">
   if (!$result) {
     //$message  = 'Requête invalide : ' . mysql_error() . "\n";
@@ -16,7 +16,7 @@ function donne_liste_pc ($db,$id_equipement_recu)
       die($message);
     }
     else {
-      $txt.= '<option>'.$select_equipement.'</option>';
+      $txt.= '<option>'.$select_equipement_pc.'</option>';
       while ($donnees_portable = $result->fetch())
       {
         if ( $constructeur != $donnees_portable['nom_equipement_constructeur']){
@@ -46,7 +46,7 @@ function donne_liste_desktop ($db,$id_equipement_recu)
 
   $result = $db->query($query);
   $constructeur="";
-  global $select_equipement;
+  global $select_equipement_desktop;
   // <optgroup label="Europe">
   if (!$result) {
     //$message  = 'Requête invalide : ' . mysql_error() . "\n";
@@ -54,7 +54,7 @@ function donne_liste_desktop ($db,$id_equipement_recu)
       die($message);
     }
     else {
-      $txt.= '<option value=0>'.$select_equipement.'</option>';
+      $txt.= '<option value=0>'.$select_equipement_desktop.'</option>';
       while ($donnees_portable = $result->fetch())
       {
         if ( $constructeur != $donnees_portable['nom_equipement_constructeur']){
@@ -120,14 +120,14 @@ function donne_liste_smartphone ($db,$id_equipement_recu)
   $query="SELECT id_equipement,e.id_equipement_constructeur,nom_equipement,model_equipement,ref_equipement,nom_equipement_constructeur from equipement e ,equipement_constructeur c where id_type_equipement='6' and e.id_equipement_constructeur=c.id_equipement_constructeur order by e.nom_equipement,e.model_equipement,e.ref_equipement,id_equipement_constructeur";
   $result = $db->query($query);
   $constructeur="";
-  global $select_equipement;
+  global $select_equipement_smartphone;
   if (!$result) {
     //$message  = 'Requête invalide : ' . mysql_error() . "\n";
     $message .= 'Requête complète : ' . $query;
       die($message);
     }
     else {
-      $txt.= '<option value=0>'.$select_equipement.'</option>';
+      $txt.= '<option value=0>'.$select_equipement_smartphone.'</option>';
       while ($donnees_portable = $result->fetch())
       {
         if ( $constructeur != $donnees_portable['nom_equipement_constructeur']){
@@ -184,7 +184,7 @@ function donne_liste_enceinte ($db,$id_equipement_recu)
 {
   $txt='';
   $message='';
-  global $select_equipement;
+  global $select_equipement_enceinte;
   $query="SELECT id_equipement,e.id_equipement_constructeur,nom_equipement,model_equipement,nom_equipement_constructeur from equipement e ,equipement_constructeur c where id_type_equipement='5' and e.id_equipement_constructeur=c.id_equipement_constructeur order by e.id_equipement_constructeur";
   $result = $db->query($query);
   $constructeur="";
@@ -194,7 +194,7 @@ function donne_liste_enceinte ($db,$id_equipement_recu)
       die($message);
     }
     else {
-      $txt.= '<option value=0>'.$select_equipement.'</option>';
+      $txt.= '<option value=0>'.$select_equipement_enceinte.'</option>';
       while ($donnees_portable = $result->fetch())
       {
         if ( $constructeur != $donnees_portable['nom_equipement_constructeur']){
@@ -254,7 +254,7 @@ function donne_liste_monitor ($db,$id_equipement_recu)
 {
   $txt='';
   $message='';
-  global $select_equipement;
+  global $select_equipement_monitor;
   $query="SELECT id_equipement,e.id_equipement_constructeur,nom_equipement,model_equipement,nom_equipement_constructeur from equipement e ,equipement_constructeur c where id_type_equipement='7' and e.id_equipement_constructeur=c.id_equipement_constructeur order by e.id_equipement_constructeur";
   $result = $db->query($query);
   $constructeur="";
@@ -264,7 +264,7 @@ function donne_liste_monitor ($db,$id_equipement_recu)
       die($message);
     }
     else {
-      $txt.= '<option value=0>'.$select_equipement.'</option>';
+      $txt.= '<option value=0>'.$select_equipement_monitor.'</option>';
       while ($donnees_portable = $result->fetch())
       {
         if ( $constructeur != $donnees_portable['nom_equipement_constructeur']){
@@ -289,7 +289,7 @@ function donne_liste_tablette ($db,$id_equipement_recu)
 {
   $txt='';
   $message='';
-  global $select_equipement;
+  global $select_equipement_tablette;
   $query="SELECT id_equipement,e.id_equipement_constructeur,nom_equipement,model_equipement,nom_equipement_constructeur,ref_equipement from equipement e ,equipement_constructeur c where id_type_equipement='9' and e.id_equipement_constructeur=c.id_equipement_constructeur ";
   $result = $db->query($query);
   $constructeur="";
@@ -299,7 +299,7 @@ function donne_liste_tablette ($db,$id_equipement_recu)
       die($message);
     }
     else {
-      $txt.= '<option value=0>'.$select_equipement.'</option>';
+      $txt.= '<option value=0>'.$select_equipement_tablette.'</option>';
       while ($donnees_portable = $result->fetch())
       {
         if ( $constructeur != $donnees_portable['nom_equipement_constructeur']){
@@ -405,7 +405,7 @@ function donne_liste_use_location ($db,$id_location_recu)
 }
 
 
-function donne_information_emission_equipement ($db,$id_equipement) {
+function donne_information_emission_equipement ($db,$id_equipement,$nb_annee) {
 $query ="SELECT
 g.id_gaz_emission_equipement,
 g.recycling_gaz_emission_equipement,
@@ -429,16 +429,26 @@ if (!$result) {
   else {
     while ($donnees_emission_equipement = $result->fetch())
     {
+        $kg=$donnees_emission_equipement['kg_co2_eq_gaz_emission_equipement'];
+        $use=$donnees_emission_equipement['use_period_equipement'];
+      if ( $nb_annee ){
+        $emission_equipement['emission_annuel']=round(($kg/$nb_annee),2);
+      }
+
+      else {
+        $emission_equipement['emission_annuel']=round(($kg/$use),2);
+      }
       $emission_equipement['recycling']=$donnees_emission_equipement['recycling_gaz_emission_equipement'];
       $emission_equipement['transport']=$donnees_emission_equipement['transport_gaz_emission_equipement'];
       $emission_equipement['custumer']=$donnees_emission_equipement['custumer_user_gaz_emission_equipement'];
       $emission_equipement['production']=$donnees_emission_equipement['production_gaz_emission_equipement'];
-      $emission_equipement['total']=$donnees_emission_equipement['kg_co2_eq_gaz_emission_equipement'];
-      $emission_equipement['use_period']=$donnees_emission_equipement['use_period_equipement'];
+      $emission_equipement['total']=$kg;
+      $emission_equipement['use_period']=$use;
       $emission_equipement['date_emission']=$donnees_emission_equipement['date_emission_equipement'];
       $emission_equipement['source']=$donnees_emission_equipement['source_gaz_emission_equipement'];
       $emission_equipement['ref2']=$donnees_emission_equipement['ref2_equipement'];
       $emission_equipement['info']=$donnees_emission_equipement['information_equipement'];
+
     }
     return $emission_equipement;
   }
@@ -541,7 +551,7 @@ function donne_duree_utilisation($duree,$duree_recu) {
   $txt="";
   if ( ! $duree_recu)
   $duree_recu=$duree;
-  while (  $i < 11 )
+  while (  $i < 10 )
   {
     if ( $i == $duree_recu )
     $txt="selected";
@@ -555,5 +565,16 @@ function donne_duree_utilisation($duree,$duree_recu) {
     }
     $i++;
   }
+}
+
+function donne_moyenne_emission_device($db,$type_equipement,$annee){
+  $query="SELECT AVG(g.kg_co2_eq_gaz_emission_equipement) as kg_co2,avg(custumer_user_gaz_emission_equipement) as user from equipement e ,equipement_informations i, gaz_emission_equipement g  where  e.id_type_equipement='$type_equipement' and e.id_equipement=i.id_equipement and e.id_equipement=g.id_equipement  ";
+  $result = $db->query($query);
+  while ($donnees = $result->fetch())
+  {
+        $data[0]=$kg_co2=$donnees['kg_co2'];
+        $data[1]=$user=$donnees['user'];
+  }
+  return $data;
 }
 ?>
